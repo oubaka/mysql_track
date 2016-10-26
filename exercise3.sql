@@ -109,14 +109,14 @@ FROM comments AS com, (
 WHERE com.article_id = art.id;
 
 -- Write a query to select all articles which do not have any comments (Do using subquery also)
- SELECT * 
+ EXPLAIN SELECT * 
  FROM articles AS art 
  LEFT JOIN comments As com 
  ON art.id = com.article_id 
  WHERE com.id IS NULL;
 
 --  using subquery
-SELECT * 
+EXPLAIN SELECT * 
 FROM articles 
 WHERE id NOT IN (
     SELECT article_id 
@@ -124,7 +124,7 @@ WHERE id NOT IN (
 );
 
 -- Write a query to select article which has maximum comments.
-SELECT art.*, COUNT(com.id) AS comment_count 
+EXPLAIN SELECT art.*, COUNT(com.id) AS comment_count 
 FROM articles AS art 
 JOIN comments AS com 
 ON art.id = com.article_id 
