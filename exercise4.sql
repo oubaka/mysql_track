@@ -1,7 +1,7 @@
 -- dump command
-mysqldump track > track.sql
+mysqldump -u root -p track > track.sql
 
 CREATE DATABASE restored;
 
 -- restore command
-mysql restored < track.sql
+mysql -u root -p restored < track.sql
